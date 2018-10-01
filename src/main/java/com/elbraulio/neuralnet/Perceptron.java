@@ -14,7 +14,7 @@ public class Perceptron implements NeuralUnit {
     }
 
     @Override
-    public Number feed(Number... inputs) {
+    public Number output(Number... inputs) {
         return new DefaultBiasOperation(
                 new DotProduct(this.weights, inputs), this.bias
         );
