@@ -5,5 +5,5 @@ package com.elbraulio.neuralnet;
  */
 public interface NeuralUnit {
 
-    Number output(Number ... inputs);
+    Number feed(Number ... inputs);
 }

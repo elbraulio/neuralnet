@@ -16,7 +16,7 @@ public class PerceptronTest {
         assertThat(
                 new Perceptron(
                         3, -2, -2
-                ).output(1, 1).intValue(),
+                ).feed(1, 1).intValue(),
                 CoreMatchers.is(0)
         );
     }
@@ -26,7 +26,7 @@ public class PerceptronTest {
         assertThat(
                 new Perceptron(
                         3, -2, -2
-                ).output(1, 0).intValue(),
+                ).feed(1, 0).intValue(),
                 CoreMatchers.is(1)
         );
     }
@@ -36,7 +36,7 @@ public class PerceptronTest {
         assertThat(
                 new Perceptron(
                         3, -2, -2
-                ).output(0, 1).intValue(),
+                ).feed(0, 1).intValue(),
                 CoreMatchers.is(1)
         );
     }
@@ -46,7 +46,7 @@ public class PerceptronTest {
         assertThat(
                 new Perceptron(
                         3, -2, -2
-                ).output(0, 0).intValue(),
+                ).feed(0, 0).intValue(),
                 CoreMatchers.is(1)
         );
     }
@@ -56,7 +56,7 @@ public class PerceptronTest {
         assertThat(
                 new Perceptron(
                         -1.5, 1, 1
-                ).output(1, 1).intValue(),
+                ).feed(1, 1).intValue(),
                 CoreMatchers.is(1)
         );
     }
@@ -66,7 +66,7 @@ public class PerceptronTest {
         assertThat(
                 new Perceptron(
                         -1.5, 1, 1
-                ).output(1, 0).intValue(),
+                ).feed(1, 0).intValue(),
                 CoreMatchers.is(0)
         );
     }
@@ -76,7 +76,7 @@ public class PerceptronTest {
         assertThat(
                 new Perceptron(
                         -1.5, 1, 1
-                ).output(0, 1).intValue(),
+                ).feed(0, 1).intValue(),
                 CoreMatchers.is(0)
         );
     }
@@ -86,7 +86,7 @@ public class PerceptronTest {
         assertThat(
                 new Perceptron(
                         -1.5, 1, 1
-                ).output(0, 0).intValue(),
+                ).feed(0, 0).intValue(),
                 CoreMatchers.is(0)
         );
     }
@@ -96,7 +96,7 @@ public class PerceptronTest {
         assertThat(
                 new Perceptron(
                         -0.5, 1, 1
-                ).output(1, 1).intValue(),
+                ).feed(1, 1).intValue(),
                 CoreMatchers.is(1)
         );
     }
@@ -106,7 +106,7 @@ public class PerceptronTest {
         assertThat(
                 new Perceptron(
                         -0.5, 1, 1
-                ).output(1, 0).intValue(),
+                ).feed(1, 0).intValue(),
                 CoreMatchers.is(1)
         );
     }
@@ -116,7 +116,7 @@ public class PerceptronTest {
         assertThat(
                 new Perceptron(
                         -0.5, 1, 1
-                ).output(0, 1).intValue(),
+                ).feed(0, 1).intValue(),
                 CoreMatchers.is(1)
         );
     }
@@ -126,7 +126,7 @@ public class PerceptronTest {
         assertThat(
                 new Perceptron(
                         -0.5, 1, 1
-                ).output(0, 0).intValue(),
+                ).feed(0, 0).intValue(),
                 CoreMatchers.is(0)
         );
     }
