@@ -43,8 +43,7 @@ public class DotProduct extends Number {
     public double doubleValue() {
         double sum = 0;
         for (int i = 0; i < this.vect1.length; i++) {
-            sum += this.vect1[i].doubleValue() * this.vect2[i]
-                    .doubleValue();
+            sum += this.vect1[i].doubleValue() * this.vect2[i].doubleValue();
         }
         return sum;
     }
