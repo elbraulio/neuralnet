@@ -1,9 +1,8 @@
 package com.elbraulio.neuralnet;
 
-
-import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
@@ -17,7 +16,7 @@ public class PerceptronTest {
                 new Perceptron(
                         3, -2, -2
                 ).feed(1, 1).intValue(),
-                CoreMatchers.is(0)
+                is(0)
         );
     }
 
@@ -27,7 +26,7 @@ public class PerceptronTest {
                 new Perceptron(
                         3, -2, -2
                 ).feed(1, 0).intValue(),
-                CoreMatchers.is(1)
+                is(1)
         );
     }
 
@@ -37,7 +36,7 @@ public class PerceptronTest {
                 new Perceptron(
                         3, -2, -2
                 ).feed(0, 1).intValue(),
-                CoreMatchers.is(1)
+                is(1)
         );
     }
 
@@ -47,7 +46,7 @@ public class PerceptronTest {
                 new Perceptron(
                         3, -2, -2
                 ).feed(0, 0).intValue(),
-                CoreMatchers.is(1)
+                is(1)
         );
     }
 
@@ -57,7 +56,7 @@ public class PerceptronTest {
                 new Perceptron(
                         -1.5, 1, 1
                 ).feed(1, 1).intValue(),
-                CoreMatchers.is(1)
+                is(1)
         );
     }
 
@@ -67,7 +66,7 @@ public class PerceptronTest {
                 new Perceptron(
                         -1.5, 1, 1
                 ).feed(1, 0).intValue(),
-                CoreMatchers.is(0)
+                is(0)
         );
     }
 
@@ -77,7 +76,7 @@ public class PerceptronTest {
                 new Perceptron(
                         -1.5, 1, 1
                 ).feed(0, 1).intValue(),
-                CoreMatchers.is(0)
+                is(0)
         );
     }
 
@@ -87,7 +86,7 @@ public class PerceptronTest {
                 new Perceptron(
                         -1.5, 1, 1
                 ).feed(0, 0).intValue(),
-                CoreMatchers.is(0)
+                is(0)
         );
     }
 
@@ -97,7 +96,7 @@ public class PerceptronTest {
                 new Perceptron(
                         -0.5, 1, 1
                 ).feed(1, 1).intValue(),
-                CoreMatchers.is(1)
+                is(1)
         );
     }
 
@@ -107,7 +106,7 @@ public class PerceptronTest {
                 new Perceptron(
                         -0.5, 1, 1
                 ).feed(1, 0).intValue(),
-                CoreMatchers.is(1)
+                is(1)
         );
     }
 
@@ -117,7 +116,7 @@ public class PerceptronTest {
                 new Perceptron(
                         -0.5, 1, 1
                 ).feed(0, 1).intValue(),
-                CoreMatchers.is(1)
+                is(1)
         );
     }
 
@@ -127,7 +126,7 @@ public class PerceptronTest {
                 new Perceptron(
                         -0.5, 1, 1
                 ).feed(0, 0).intValue(),
-                CoreMatchers.is(0)
+                is(0)
         );
     }
 }
