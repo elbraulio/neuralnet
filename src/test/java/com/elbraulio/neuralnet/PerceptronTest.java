@@ -11,7 +11,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class PerceptronTest {
 
     @Test
-    public void nandOperation11(){
+    public void nandOperation11() {
         assertThat(
                 new Perceptron(
                         3, -2, -2
@@ -21,7 +21,7 @@ public class PerceptronTest {
     }
 
     @Test
-    public void nandOperation10(){
+    public void nandOperation10() {
         assertThat(
                 new Perceptron(
                         3, -2, -2
@@ -31,7 +31,7 @@ public class PerceptronTest {
     }
 
     @Test
-    public void nandOperation01(){
+    public void nandOperation01() {
         assertThat(
                 new Perceptron(
                         3, -2, -2
@@ -41,7 +41,7 @@ public class PerceptronTest {
     }
 
     @Test
-    public void nandOperation00(){
+    public void nandOperation00() {
         assertThat(
                 new Perceptron(
                         3, -2, -2
@@ -51,7 +51,7 @@ public class PerceptronTest {
     }
 
     @Test
-    public void andOperation11(){
+    public void andOperation11() {
         assertThat(
                 new Perceptron(
                         -1.5, 1, 1
@@ -61,7 +61,7 @@ public class PerceptronTest {
     }
 
     @Test
-    public void andOperation10(){
+    public void andOperation10() {
         assertThat(
                 new Perceptron(
                         -1.5, 1, 1
@@ -71,7 +71,7 @@ public class PerceptronTest {
     }
 
     @Test
-    public void andOperation01(){
+    public void andOperation01() {
         assertThat(
                 new Perceptron(
                         -1.5, 1, 1
@@ -81,7 +81,7 @@ public class PerceptronTest {
     }
 
     @Test
-    public void andOperation00(){
+    public void andOperation00() {
         assertThat(
                 new Perceptron(
                         -1.5, 1, 1
@@ -91,7 +91,7 @@ public class PerceptronTest {
     }
 
     @Test
-    public void orOperation11(){
+    public void orOperation11() {
         assertThat(
                 new Perceptron(
                         -0.5, 1, 1
@@ -101,7 +101,7 @@ public class PerceptronTest {
     }
 
     @Test
-    public void orOperation10(){
+    public void orOperation10() {
         assertThat(
                 new Perceptron(
                         -0.5, 1, 1
@@ -111,7 +111,7 @@ public class PerceptronTest {
     }
 
     @Test
-    public void orOperation01(){
+    public void orOperation01() {
         assertThat(
                 new Perceptron(
                         -0.5, 1, 1
@@ -121,7 +121,7 @@ public class PerceptronTest {
     }
 
     @Test
-    public void orOperation00(){
+    public void orOperation00() {
         assertThat(
                 new Perceptron(
                         -0.5, 1, 1

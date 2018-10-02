@@ -7,7 +7,7 @@ public class Perceptron implements NeuralUnit {
     private final Number bias;
     private final Number[] weights;
 
-    public Perceptron(Number bias, Number... weights){
+    public Perceptron(Number bias, Number... weights) {
 
         this.bias = bias;
         this.weights = weights;

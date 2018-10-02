@@ -15,7 +15,7 @@ public class DotProductTest {
     public void intValue() {
         assertThat(
                 new DotProduct(
-                        new Number[]{1,1,1}, new Number[]{2,2,2}
+                        new Number[]{1, 1, 1}, new Number[]{2, 2, 2}
                 ).intValue(),
                 is(6)
         );
@@ -26,7 +26,7 @@ public class DotProductTest {
         assertThat(
                 new DotProduct(
                         new Number[]{-9223372036L, -9223372036L, 9223372036L},
-                        new Number[]{1L,1L,1L}
+                        new Number[]{1L, 1L, 1L}
                 ).longValue(),
                 is(-9223372036L)
         );
@@ -37,7 +37,7 @@ public class DotProductTest {
         assertThat(
                 new DotProduct(
                         new Number[]{-1.2f, -1.2f, 1.2f},
-                        new Number[]{1f,1f,1f}
+                        new Number[]{1f, 1f, 1f}
                 ).floatValue(),
                 is(-1.2f)
         );
@@ -48,7 +48,7 @@ public class DotProductTest {
         assertThat(
                 new DotProduct(
                         new Number[]{-1.234d, -1.234d, 1.234d},
-                        new Number[]{1d,1d,1d}
+                        new Number[]{1d, 1d, 1d}
                 ).doubleValue(),
                 is(-1.234d)
         );
