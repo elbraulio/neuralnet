@@ -2,11 +2,10 @@
 
 ## Perceptron
 
-Basic use of it:
-
-First receive bias, then all the inputs weights. Also, you can call ```feed``` to get the output value as a [Number](https://docs.oracle.com/javase/8/docs/api/java/lang/Number.html).
+**Basic use:** It receive bias followed by all the inputs weights that you need. Also, you can ```feed``` it to get an output value as a [Number](https://docs.oracle.com/javase/8/docs/api/java/lang/Number.html).
 
 ~~~java
-new Perceptron(-1.5, 1, 1).feed(1, 1).intValue();
+NeuralUnit perceptron = new Perceptron(-1.5, 1, 1);
+Number output = perceptron.feed(1, 1);
 ~~~
 
