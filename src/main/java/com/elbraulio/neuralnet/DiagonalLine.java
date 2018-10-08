@@ -30,10 +30,13 @@ public class DiagonalLine implements Supervise {
                 ThreadLocalRandom.current().nextInt(-120, 120),
                 ThreadLocalRandom.current().nextInt(-120, 120)
         };
-        Number desired =
-                input[1].doubleValue() - input[0].doubleValue() <= 0 ? 0 : 1;
         NeuralArgs newArgs = new DefaultLearning(this.learningRate)
-                .newArgs(desired, this.args.getLast(), input);
+                .newArgs(
+                        input[1].doubleValue() -
+                                input[0].doubleValue() <= 0 ? 0 : 1,
+                        this.args.getLast(),
+                        input
+                );
         this.args.addLast(newArgs);
         return new Perceptron(newArgs);
     }
