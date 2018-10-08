@@ -6,6 +6,6 @@ package com.elbraulio.neuralnet;
 public class AboveBelow implements Desired {
     @Override
     public Number output(Number... input) {
-        return input[1].doubleValue() - input[0].doubleValue() <= 0 ? 0 : 1;
+        return input[1].intValue() - input[0].intValue() <= 0 ? 0 : 1;
     }
 }
