@@ -11,6 +11,18 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class PerceptronTest {
 
     @Test
+    public void ctr(){
+        assertThat(
+                new Perceptron(1,1,1).feed(1,1).doubleValue(),
+                is(
+                        new Perceptron(
+                                new DefaultArgs(1,1,1)
+                        ).feed(1,1).doubleValue()
+                )
+        );
+    }
+
+    @Test
     public void nandOperation11() {
         assertThat(
                 new Perceptron(
