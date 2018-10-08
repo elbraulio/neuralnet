@@ -1,4 +1,4 @@
-package examples.sides;
+package com.elbraulio.neuralnet;
 
 import com.elbraulio.neuralnet.DiagonalLine;
 import com.elbraulio.neuralnet.Supervise;
