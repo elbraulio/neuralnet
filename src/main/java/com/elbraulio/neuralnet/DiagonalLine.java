@@ -1,6 +1,7 @@
 package com.elbraulio.neuralnet;
 
 import java.util.Deque;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -16,12 +17,9 @@ public class DiagonalLine implements Supervise {
                 learningRate,
                 new AsDeque<NeuralArgs>(
                         new DefaultArgs(
-                                ThreadLocalRandom.current()
-                                        .nextDouble(-2d, 2d),
-                                ThreadLocalRandom.current()
-                                        .nextDouble(-2d, 2d),
-                                ThreadLocalRandom.current()
-                                        .nextDouble(-2d, 2d)
+                                new Random().nextDouble() * 4 - 2,
+                                new Random().nextDouble() * 4 - 2,
+                                new Random().nextDouble() * 4 - 2
                         )
                 ).deque(),
                 new AboveBelow()
@@ -40,8 +38,8 @@ public class DiagonalLine implements Supervise {
     @Override
     public NeuralUnit perceptron() {
         Number[] input = new Number[]{
-                ThreadLocalRandom.current().nextInt(-120, 120),
-                ThreadLocalRandom.current().nextInt(-120, 120)
+                new Random().nextDouble() * 240 - 120,
+                new Random().nextDouble() * 240 - 120
         };
         NeuralArgs newArgs = new DefaultLearning(this.learningRate).newArgs(
                 this.desired.output(input), this.args.getLast(), input
