@@ -8,11 +8,11 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class DiagonalLine implements Supervise {
     private final Number learningRate;
-    private final Deque<DefaultArgs> args;
+    private final Deque<NeuralArgs> args;
 
     public DiagonalLine(Number learningRate) {
         this.learningRate = learningRate;
-        this.args = new AsDeque<>(
+        this.args = new AsDeque<NeuralArgs>(
                 new DefaultArgs(
                         ThreadLocalRandom.current()
                                 .nextDouble(-2d, 2d),
@@ -32,29 +32,9 @@ public class DiagonalLine implements Supervise {
         };
         Number desired =
                 input[1].doubleValue() - input[0].doubleValue() <= 0 ? 0 : 1;
-        DefaultArgs lastArgs = this.args.getLast();
-        Number output = new Perceptron(lastArgs).feed(input);
-        if (desired.intValue() != output.intValue()) {
-            Number difference = desired.intValue() - output.intValue();
-            Number[] newWeight = new Number[lastArgs.weights().length];
-            for (int i = 0; i < newWeight.length; i++) {
-                newWeight[i] = lastArgs.weights()[i].doubleValue() +
-                        (
-                                this.learningRate.doubleValue() *
-                                        input[i].doubleValue() *
-                                        difference.doubleValue()
-                        );
-            }
-            Number newBias = lastArgs.bias().doubleValue() +
-                    (
-                            this.learningRate.doubleValue() *
-                                    difference.doubleValue()
-                    );
-            this.args.addLast(new DefaultArgs(newBias, newWeight));
-            return new Perceptron(newBias, newWeight);
-        } else {
-            this.args.addLast(lastArgs);
-            return new Perceptron(lastArgs);
-        }
+        NeuralArgs newArgs = new DefaultLearning(this.learningRate)
+                .newArgs(desired, this.args.getLast(), input);
+        this.args.addLast(newArgs);
+        return new Perceptron(newArgs);
     }
 }
