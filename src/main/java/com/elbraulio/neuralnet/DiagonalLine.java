@@ -41,7 +41,7 @@ public class DiagonalLine implements Supervise {
                 new Random().nextDouble() * 240 - 120,
                 new Random().nextDouble() * 240 - 120
         };
-        NeuralArgs newArgs = new DefaultLearning(this.learningRate).newArgs(
+        NeuralArgs newArgs = new PerceptronLearning(this.learningRate).newArgs(
                 this.desired.output(input), this.args.getLast(), input
         );
         this.args.addLast(newArgs);

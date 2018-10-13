@@ -27,7 +27,7 @@ public class XORTrainer implements Supervise {
     public NeuralUnit perceptron() {
         int x = ThreadLocalRandom.current().nextDouble() >= 0.5 ? 1 : 0;
         int y = ThreadLocalRandom.current().nextDouble() >= 0.5 ? 1 : 0;
-        NeuralArgs newArgs = new DefaultLearning(this.learningRate).newArgs(
+        NeuralArgs newArgs = new PerceptronLearning(this.learningRate).newArgs(
                 this.desired.output(x, y),
                 this.args.getLast(), x, y
         );

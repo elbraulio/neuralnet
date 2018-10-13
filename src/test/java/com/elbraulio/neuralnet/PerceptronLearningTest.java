@@ -8,10 +8,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * @author Braulio Lopez (brauliop.3@gmail.com)
  */
-public class DefaultLearningTest {
+public class PerceptronLearningTest {
     @Test
     public void noLearningRate(){
-        NeuralArgs newArgs = new DefaultLearning(0).newArgs(
+        NeuralArgs newArgs = new PerceptronLearning(0).newArgs(
                 0, new DefaultArgs(1d,1,1),1,1
         );
         assertThat(newArgs.bias(), is(1d));
@@ -20,7 +20,7 @@ public class DefaultLearningTest {
 
     @Test
     public void learnFromCorrectOnes(){
-        NeuralArgs newArgs = new DefaultLearning(1d).newArgs(
+        NeuralArgs newArgs = new PerceptronLearning(1d).newArgs(
                 1, new DefaultArgs(1d,1d,1d),1,1
         );
         assertThat(newArgs.bias(), is(1d));

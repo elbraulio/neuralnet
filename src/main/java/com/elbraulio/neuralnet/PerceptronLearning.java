@@ -3,11 +3,11 @@ package com.elbraulio.neuralnet;
 /**
  * @author Braulio Lopez (brauliop.3@gmail.com)
  */
-public class DefaultLearning implements Learning {
+public class PerceptronLearning implements Learning {
 
     private final Number learningRate;
 
-    public DefaultLearning(Number learningRate) {
+    public PerceptronLearning(Number learningRate) {
         this.learningRate = learningRate;
     }
 
