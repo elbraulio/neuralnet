@@ -16,7 +16,7 @@ public class SigmoidTest {
                 new Sigmoid(
                         3, -2, -2
                 ).feed(1, 1).doubleValue(),
-                greaterThan(0.5)
+                lessThan(0.5)
         );
     }
 
@@ -26,7 +26,7 @@ public class SigmoidTest {
                 new Sigmoid(
                         3, -2, -2
                 ).feed(1, 0).doubleValue(),
-                lessThan(0.5)
+                greaterThan(0.5)
         );
     }
 
@@ -36,7 +36,7 @@ public class SigmoidTest {
                 new Sigmoid(
                         3, -2, -2
                 ).feed(0, 1).doubleValue(),
-                lessThan(0.5)
+                greaterThan(0.5)
         );
     }
 
@@ -46,7 +46,7 @@ public class SigmoidTest {
                 new Sigmoid(
                         3, -2, -2
                 ).feed(0, 0).doubleValue(),
-                lessThan(0.5)
+                greaterThan(0.5)
         );
     }
 }

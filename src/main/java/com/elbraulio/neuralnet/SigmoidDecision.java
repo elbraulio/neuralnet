@@ -14,29 +14,29 @@ public class SigmoidDecision extends Number {
 
     @Override
     public int intValue() {
-        return  1 / (
-                1 + Math.exp(dotProduct.doubleValue() + bias.doubleValue())
+        return 1 / (
+                1 + Math.exp(-dotProduct.doubleValue() - bias.doubleValue())
         ) >= 0.5 ? 1 : 0;
     }
 
     @Override
     public long longValue() {
-        return  1 / (
-                1 + Math.exp(dotProduct.doubleValue() + bias.doubleValue())
+        return 1 / (
+                1 + Math.exp(-dotProduct.doubleValue() - bias.doubleValue())
         ) >= 0.5 ? 1 : 0;
     }
 
     @Override
     public float floatValue() {
-        return  1 / (
-                1 + Math.exp(dotProduct.doubleValue() + bias.doubleValue())
+        return 1 / (
+                1 + Math.exp(-dotProduct.doubleValue() - bias.doubleValue())
         ) >= 0.5 ? 1 : 0;
     }
 
     @Override
     public double doubleValue() {
-        return  1 / (
-                1 + Math.exp(dotProduct.doubleValue() + bias.doubleValue())
+        return 1 / (
+                1 + Math.exp(-dotProduct.doubleValue() - bias.doubleValue())
         );
     }
 }

@@ -30,6 +30,6 @@ public class SigmoidLearningTest {
         assertThat(newArgs.bias().doubleValue(), greaterThan(1d));
         assertThat(
                 newArgs.weights(),
-                is(new Number[]{1.9525741268224333, 1.9525741268224333}));
+                is(new Number[]{1.0474258731775667, 1.0474258731775667}));
     }
 }
