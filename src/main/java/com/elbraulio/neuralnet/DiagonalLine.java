@@ -17,9 +17,9 @@ public class DiagonalLine implements Supervise {
                 learningRate,
                 new AsDeque<NeuralArgs>(
                         new DefaultArgs(
-                                new Random().nextDouble() * 4 - 2,
-                                new Random().nextDouble() * 4 - 2,
-                                new Random().nextDouble() * 4 - 2
+                                ThreadLocalRandom.current().nextDouble(-2d, 2d),
+                                ThreadLocalRandom.current().nextDouble(-2d, 2d),
+                                ThreadLocalRandom.current().nextDouble(-2d, 2d)
                         )
                 ).deque(),
                 new AboveBelow()

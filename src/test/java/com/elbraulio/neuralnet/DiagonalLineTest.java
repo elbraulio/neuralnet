@@ -1,8 +1,5 @@
 package com.elbraulio.neuralnet;
 
-import com.elbraulio.neuralnet.DiagonalLine;
-import com.elbraulio.neuralnet.Supervise;
-import com.elbraulio.neuralnet.NeuralUnit;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
