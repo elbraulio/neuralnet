@@ -6,6 +6,10 @@ package com.elbraulio.neuralnet;
 public class Sigmoid implements NeuralUnit {
     private final NeuralArgs args;
 
+    public Sigmoid(Number bias, Number ... weights){
+        this(new DefaultArgs(bias, weights));
+    }
+
     public Sigmoid(NeuralArgs args) {
         this.args = args;
     }

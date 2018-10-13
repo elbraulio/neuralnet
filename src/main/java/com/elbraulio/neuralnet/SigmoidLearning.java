@@ -6,9 +6,15 @@ package com.elbraulio.neuralnet;
 public class SigmoidLearning implements Learning {
 
     private final Number learningRate;
+    private final Check check;
 
     public SigmoidLearning(Number learningRate) {
+        this(learningRate, new Equals());
+    }
+
+    public SigmoidLearning(Number learningRate, Check check) {
         this.learningRate = learningRate;
+        this.check = check;
     }
 
     @Override
@@ -16,7 +22,11 @@ public class SigmoidLearning implements Learning {
             Number desired, NeuralArgs lastArgs, Number... input
     ) {
         Number output = new Sigmoid(lastArgs).feed(input);
-        if (desired.intValue() != output.intValue()) {
+        if (
+                !this.check.isOnRange(
+                        desired.doubleValue(), output.doubleValue()
+                )
+        ) {
             Number difference = desired.doubleValue() - output.doubleValue();
             Number[] newWeight = new Number[lastArgs.weights().length];
             for (int i = 0; i < newWeight.length; i++) {
