@@ -15,6 +15,10 @@ public class SigmoidDecisionTest {
     public void intValue() {
         assertThat(
                 new SigmoidDecision(1, 1).intValue(),
+                is(1)
+        );
+        assertThat(
+                new SigmoidDecision(-10, 1).intValue(),
                 is(0)
         );
     }
@@ -23,6 +27,10 @@ public class SigmoidDecisionTest {
     public void longValue() {
         assertThat(
                 new SigmoidDecision(1, 1).longValue(),
+                is(1l)
+        );
+        assertThat(
+                new SigmoidDecision(-10, 1).longValue(),
                 is(0l)
         );
     }
@@ -30,7 +38,11 @@ public class SigmoidDecisionTest {
     @Test
     public void floatValue() {
         assertThat(
-                new SigmoidDecision(1, 1).floatValue(),
+                new SigmoidDecision(-1, 1).floatValue(),
+                is(1f)
+        );
+        assertThat(
+                new SigmoidDecision(-10, 1).floatValue(),
                 is(0f)
         );
     }
