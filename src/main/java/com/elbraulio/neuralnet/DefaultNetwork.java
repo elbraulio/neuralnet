@@ -58,24 +58,26 @@ public final class DefaultNetwork implements NeuralNetwork {
 
     @Override
     public void toTrain(DesiredOutput desiredOutput, Number... input) {
+        // back-propagation
         Number[] output = this.feed(input);
         Number[] desired = desiredOutput.desired(input);
         if(desiredOutput.isDesired(input, output)){
             desired = output;
         }
-        Number[][] deltas = new MatrixByLength(this.outputLength,
-                this.hiddenLength).matrix();
+        Number[][] deltas = new MatrixByLength(
+                this.outputLength, this.hiddenLength
+        ).matrix();
         // output error and deltas
-        Number[] outputLayer = this.timeLine.output(this.hiddenLength.length);
-        for (int j = 0; j < outputLayer.length; j++) {
+        Number[] outputOutputLayer = this.timeLine.output(this.hiddenLength.length);
+        for (int j = 0; j < outputOutputLayer.length; j++) {
             double error = desired[j].doubleValue() -
-                    outputLayer[j].doubleValue();
+                    outputOutputLayer[j].doubleValue();
             double delta =
-                    error * outputLayer[j].doubleValue()
-                            * (1d - outputLayer[j].doubleValue());
+                    error * outputOutputLayer[j].doubleValue()
+                            * (1d - outputOutputLayer[j].doubleValue());
             deltas[this.hiddenLength.length][j] = delta;
         }
-        // last hidden layer neuron
+        // last hidden layer neuron error and deltas
         for (int j = 0; j < this.hiddenLength[this.hiddenLength.length - 1]; j++) {
             double error = 0d;
             for (int k = 0; k < this.outputLength; k++) {
@@ -94,7 +96,7 @@ public final class DefaultNetwork implements NeuralNetwork {
                 double error = 0d;
                 for (int k = 0; k < this.hiddenLength[i + 1]; k++) {
                     Number[] nextLayerWeights = this.timeLine.weight(i + 1, k);
-                    error += deltas[i + 1][j].doubleValue() * nextLayerWeights[j].doubleValue();
+                    error += deltas[i + 1][k].doubleValue() * nextLayerWeights[j].doubleValue();
                 }
                 double delta =
                         error * this.timeLine.output(i)[j].doubleValue() *
@@ -102,9 +104,11 @@ public final class DefaultNetwork implements NeuralNetwork {
                 deltas[i][j] = delta;
             }
         }
+        // update bias and weights
         List<List<Number[]>> newEpochWeights = new ArrayList<>();
-        Number[][] newEpochBias = new MatrixByLength(this.outputLength,
-                this.hiddenLength).matrix();
+        Number[][] newEpochBias = new MatrixByLength(
+                this.outputLength, this.hiddenLength
+        ).matrix();
         // update weight and bias for first hidden layer
         newEpochWeights.add(new ArrayList<>(this.hiddenLength[0]));
         for (int i = 0; i < this.hiddenLength[0]; i++) {
@@ -146,7 +150,7 @@ public final class DefaultNetwork implements NeuralNetwork {
         }
         // update weight and bias for output layer
         newEpochWeights.add(new ArrayList<>(this.outputLength));
-        for (int j = 0; j < outputLayer.length; j++) {
+        for (int j = 0; j < outputOutputLayer.length; j++) {
             Number[] weights = this.timeLine.weight(
                     this.hiddenLength.length, j
             );

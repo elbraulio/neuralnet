@@ -55,7 +55,7 @@ public class Launcher {
         chart.getStyler().setYAxisMin(0d);
         chart.getStyler().setYAxisMax(100d);
         XYSeries seriesLiability = chart.addSeries(
-                "Precision", x, y
+                "Precision by epoch", x, y
         );
         seriesLiability.setXYSeriesRenderStyle(
                 XYSeries.XYSeriesRenderStyle.Line
