@@ -32,7 +32,7 @@ public final class PrecisionChart {
         chart.getStyler().setYAxisMin(0d);
         chart.getStyler().setYAxisMax(1d);
         XYSeries seriesLiability = chart.addSeries(
-                "Precision", x, y
+                "Precision by epoch", x, y
         );
         seriesLiability.setXYSeriesRenderStyle(
                 XYSeries.XYSeriesRenderStyle.Line
