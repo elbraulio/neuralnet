@@ -30,7 +30,7 @@ public final class Launcher {
             return;
         }
         final NeuralNetwork network = new DefaultNetwork(
-                0.5, 1555, 1,
+                0.3, 1555, 1,
                 50, 50, 50, 50, 50, 50
         );
         final String data = args[0];
@@ -39,7 +39,7 @@ public final class Launcher {
         logln("Initial and NO trained results");
         runTest(data, network, 3279);
         logln("Training");
-        toTrain(10, data, network, 3279, true);
+        toTrain(100, data, network, 3279, false);
         logln("Final and trained results");
         runTest(data, network, 3279);
         logln(
@@ -128,11 +128,11 @@ public final class Launcher {
         logln("");
         logln(
                 "mean squared error: " +
-                        (sqrerror.count()/inputLines.size()*epoches)
+                        (sqrerror.count()/(inputLines.size()*epoches))
         );
         logln(
                 "mean abs error: " +
-                        (abserror.count()/inputLines.size()*epoches)
+                        (abserror.count()/(inputLines.size()*epoches))
         );
         logln("learning curve: " + Arrays.toString(learnigCurve));
         new PrecisionChart(learnigCurve).show();
