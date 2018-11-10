@@ -30,8 +30,8 @@ public final class Launcher {
             return;
         }
         final NeuralNetwork network = new DefaultNetwork(
-                0.3, 1555, 1,
-                50, 50, 50, 50, 50, 50
+                0.3, 1557, 1,
+                20, 20, 20, 20, 20
         );
         final String data = args[0];
         logln("Experiment started");
@@ -39,7 +39,7 @@ public final class Launcher {
         logln("Initial and NO trained results");
         runTest(data, network, 3279);
         logln("Training");
-        toTrain(100, data, network, 3279, false);
+        toTrain(100, data, network, 3279, true);
         logln("Final and trained results");
         runTest(data, network, 3279);
         logln(
