@@ -15,24 +15,34 @@ import java.util.List;
  * @author Braulio Lopez (brauliop.3@gmail.com)
  */
 public final class Launcher {
-    static final Number nl = 0d;
-    static final Number nh = 1d;
-    static final Number dl = 0d;
-    static final Number dh = 640d;
+
+    /**
+     * Normalize params
+     */
+    private static final Number NL = 0d;
+    private static final Number NH = 1d;
+    private static final Number DL = 0d;
+    private static final Number DH = 640d;
 
     public static void main(String[] args) throws IOException {
-
+        if (args.length != 1) {
+            logln("Must provide data source path");
+            return;
+        }
         final NeuralNetwork network = new DefaultNetwork(
-                0.02, 1555, 1,
-                50,50,50,50,50,50
+                0.3, 1557, 1,
+                20, 20, 20, 20, 20
         );
-        final String data = "/Users/elbraulio/Downloads/ad-dataset/ad.data";
-        System.out.println("Experiment started");
+        final String data = args[0];
+        logln("Experiment started");
         final long ti = System.currentTimeMillis();
+        logln("Initial and NO trained results");
         runTest(data, network, 3279);
+        logln("Training");
         toTrain(100, data, network, 3279, true);
+        logln("Final and trained results");
         runTest(data, network, 3279);
-        System.out.println(
+        logln(
                 "Experiment finished after " +
                         (System.currentTimeMillis() - ti) / 1000 +
                         " seconds"
@@ -40,24 +50,25 @@ public final class Launcher {
     }
 
     /**
-     * train a network n times.
+     * train a network nEpoches times.
      *
-     * @param n       times to be trained
+     * @param nEpoches       times to be trained
      * @param data    source
      * @param network network
      * @throws IOException when source is not found
      */
     private static void toTrain(
-            int n, String data, NeuralNetwork network, int ndata,
+            int nEpoches, String data, NeuralNetwork network, int ndata,
             boolean shuffle
     ) throws IOException {
-        final int epoches = n;
+        final int epoches = nEpoches;
         final Add sqrerror = new Add();
         final Add abserror = new Add();
-        final Number[] learnigCurve = new Number[n];
+        final Number[] learnigCurve = new Number[nEpoches];
         final List<String> inputLines = readInput(data, ndata, shuffle);
-        while (n-- > 0) {
-            System.out.println("epoch: " + (epoches - n));
+        log("epoch (of " + nEpoches + "): ");
+        while (nEpoches-- > 0) {
+            log((epoches - nEpoches) + ", ");
             final Add hits = new Add();
             final Add wrong = new Add();
             for (String inputLine : inputLines) {
@@ -110,16 +121,32 @@ public final class Launcher {
                         inputs
                 );
             }
-            final int currentIndex = epoches - n - 1;
+            final int currentIndex = epoches - nEpoches - 1;
             learnigCurve[currentIndex] = hits.count() /
                     (hits.count() + wrong.count());
         }
-        System.out.println("mean squared error: " + sqrerror);
-        System.out.println("mean abs error: " + abserror);
-        System.out.println("learning curve: " + Arrays.toString(learnigCurve));
+        logln("");
+        logln(
+                "mean squared error: " +
+                        (sqrerror.count()/(inputLines.size()*epoches))
+        );
+        logln(
+                "mean abs error: " +
+                        (abserror.count()/(inputLines.size()*epoches))
+        );
+        logln("learning curve: " + Arrays.toString(learnigCurve));
         new PrecisionChart(learnigCurve).show();
     }
 
+    /**
+     * Read the input from source and shuffle it if it's needed.
+     *
+     * @param source  data source path
+     * @param ndata   number of lines to be read
+     * @param shuffle if true, shuffle the data before return
+     * @return list of lines from source
+     * @throws IOException error reading source file
+     */
     private static List<String> readInput(
             String source, int ndata, boolean shuffle
     ) throws IOException {
@@ -187,18 +214,18 @@ public final class Launcher {
                     }
                 }
             }
-            System.out.println("tp :" + tp);
-            System.out.println("tn :" + tn);
-            System.out.println("fn :" + fn);
-            System.out.println("fp :" + fp);
+            logln("tp :" + tp);
+            logln("tn :" + tn);
+            logln("fn :" + fn);
+            logln("fp :" + fp);
             if ((tp + fp) != 0)
-                System.out.println("precision: " + tp / (tp + fp));
+                logln("precision: " + tp / (tp + fp));
             else
-                System.out.println("precision: 0");
+                logln("precision: 0");
             if ((tp + fn) != 0)
-                System.out.println("recall: " + tp / (tp + fn));
+                logln("recall: " + tp / (tp + fn));
             else
-                System.out.println("recall: 0");
+                logln("recall: 0");
         }
     }
 
@@ -211,19 +238,19 @@ public final class Launcher {
         Number[] inputs = new Number[1557];
         if (!split[0].trim().equals("?")) {
             Number x = Double.parseDouble(split[0].trim());
-            inputs[0] = new Normalize(x, dl, dh, nl, nh);
+            inputs[0] = new Normalize(x, DL, DH, NL, NH);
         } else {
             return new Number[]{};
         }
         if (!split[1].trim().equals("?")) {
             Number x = Double.parseDouble(split[1].trim());
-            inputs[1] = new Normalize(x, dl, dh, nl, nh);
+            inputs[1] = new Normalize(x, DL, DH, NL, NH);
         } else {
             return new Number[]{};
         }
         if (!split[2].trim().equals("?")) {
             Number x = Double.parseDouble(split[2].trim());
-            inputs[2] = new Normalize(x, dl, dh, nl, nh);
+            inputs[2] = new Normalize(x, DL, DH, NL, NH);
         } else {
             return new Number[]{};
         }
@@ -235,5 +262,23 @@ public final class Launcher {
             inputs[j] = Integer.parseInt(split[j].trim());
         }
         return inputs;
+    }
+
+    /**
+     * Log the message and print new line
+     *
+     * @param msg message
+     */
+    private static void logln(String msg) {
+        log(msg + "\n");
+    }
+
+    /**
+     * Log the message
+     *
+     * @param msg message
+     */
+    private static void log(String msg) {
+        System.out.print(msg);
     }
 }
