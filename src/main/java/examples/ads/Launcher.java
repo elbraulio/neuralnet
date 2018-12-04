@@ -1,6 +1,10 @@
 package examples.ads;
 
-import com.elbraulio.neuralnet.*;
+import com.elbraulio.neuralnet.desired.DesiredOutput;
+import com.elbraulio.neuralnet.network.DefaultNetwork;
+import com.elbraulio.neuralnet.network.NeuralNetwork;
+import com.elbraulio.neuralnet.utils.Add;
+import com.elbraulio.neuralnet.utils.Normalize;
 import examples.PrecisionChart;
 
 import java.io.BufferedReader;
