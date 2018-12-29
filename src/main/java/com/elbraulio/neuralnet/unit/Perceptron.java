@@ -1,5 +1,6 @@
 package com.elbraulio.neuralnet.unit;
 
+import com.elbraulio.neuralnet.args.DefaultArgs;
 import com.elbraulio.neuralnet.args.NeuralArgs;
 import com.elbraulio.neuralnet.unit.NeuralUnit;
 import com.elbraulio.neuralnet.utils.DefaultBiasOperation;
@@ -27,5 +28,10 @@ public class Perceptron implements NeuralUnit {
         return new DefaultBiasOperation(
                 new DotProduct(this.weights, inputs), this.bias
         );
+    }
+
+    @Override
+    public NeuralArgs args() {
+        return new DefaultArgs(this.bias, this.weights);
     }
 }
