@@ -59,6 +59,11 @@ public final class DefaultNetwork implements NeuralNetwork {
     }
 
     @Override
+    public NeuralUnit[] neurons(){
+        return this.neuralUnits;
+    }
+
+    @Override
     public Number[] feed(Number... input) {
         // feed first layout with input
         for (int i = 0; i < this.hiddenLength[0]; i++) {
