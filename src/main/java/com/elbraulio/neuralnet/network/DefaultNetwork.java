@@ -25,14 +25,37 @@ public final class DefaultNetwork implements NeuralNetwork {
             double learningRate, int inputLength, int outputLength,
             int... hiddenLength
     ) {
+        this(
+                learningRate, outputLength,
+                new DefaultTimeLine(
+                        inputLength, outputLength, hiddenLength
+                ),
+                hiddenLength
+        );
+    }
+
+    private DefaultNetwork(
+            double learningRate, int outputLength, TimeLine timeLine,
+            int... hiddenLength
+    ){
+        this(
+                learningRate, outputLength, timeLine,
+                new NetworkBuilder(
+                        timeLine, outputLength, hiddenLength
+                ).array(), hiddenLength
+        );
+    }
+
+    public DefaultNetwork(
+            double learningRate, int outputLength, TimeLine timeLine,
+            NeuralUnit[] neuralUnits, int... hiddenLength
+    ) {
+
         this.learningRate = learningRate;
         this.outputLength = outputLength;
+        this.timeLine = timeLine;
+        this.neuralUnits = neuralUnits;
         this.hiddenLength = hiddenLength;
-        this.timeLine = new DefaultTimeLine(
-                inputLength, outputLength, hiddenLength);
-        this.neuralUnits = new NetworkBuilder(
-                this.timeLine, outputLength, hiddenLength
-        ).array();
     }
 
     @Override
@@ -68,7 +91,7 @@ public final class DefaultNetwork implements NeuralNetwork {
         // back-propagation
         Number[] output = this.feed(input);
         Number[] desired = desiredOutput.desired(input);
-        if(desiredOutput.isDesired(input, output)){
+        if (desiredOutput.isDesired(input, output)) {
             desired = output;
         }
         Number[][] deltas = new MatrixByLength(
