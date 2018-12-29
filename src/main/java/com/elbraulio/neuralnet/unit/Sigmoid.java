@@ -25,4 +25,9 @@ public class Sigmoid implements NeuralUnit {
                 new DotProduct(this.args.weights(), inputs), this.args.bias()
         );
     }
+
+    @Override
+    public NeuralArgs args() {
+        return this.args;
+    }
 }

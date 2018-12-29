@@ -1,5 +1,7 @@
 package com.elbraulio.neuralnet.unit;
 
+import com.elbraulio.neuralnet.args.FromTimeline;
+import com.elbraulio.neuralnet.args.NeuralArgs;
 import com.elbraulio.neuralnet.timeline.TimeLine;
 
 /**
@@ -25,5 +27,10 @@ public final class SaveToTimeline implements NeuralUnit {
         final Number output = this.unit.feed(inputs);
         this.timeLine.saveOutput(output, this.layer, this.index);
         return output;
+    }
+
+    @Override
+    public NeuralArgs args(){
+        return new FromTimeline(this.timeLine, this.layer, this.index);
     }
 }
