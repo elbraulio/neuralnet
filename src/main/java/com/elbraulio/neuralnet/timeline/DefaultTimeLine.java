@@ -14,15 +14,18 @@ public final class DefaultTimeLine implements TimeLine {
     private Epoch currentE;
 
     public DefaultTimeLine(
-            int inputLength,int outputLength, int[] hiddenLength
-            ) {
-
-
-        this.currentE =
+            int inputLength, int outputLength, int[] hiddenLength
+    ) {
+        this(
                 new EpochWithInitialValues(
                         inputLength, outputLength, hiddenLength
-                ).epoch();
+                ).epoch()
+        );
 
+    }
+
+    public DefaultTimeLine(Epoch epoch) {
+        this.currentE = epoch;
     }
 
     @Override
