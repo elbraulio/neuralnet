@@ -2,12 +2,9 @@ package com.elbraulio.neuralnet.utils;
 
 import com.elbraulio.neuralnet.timeline.DefaultTimeLine;
 import com.elbraulio.neuralnet.unit.NeuralUnit;
-import org.hamcrest.Matcher;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * @author Braulio Lopez (brauliop.3@gmail.com)

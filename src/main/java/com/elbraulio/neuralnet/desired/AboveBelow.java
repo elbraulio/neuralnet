@@ -1,7 +1,5 @@
 package com.elbraulio.neuralnet.desired;
 
-import com.elbraulio.neuralnet.desired.Desired;
-
 /**
  * @author Braulio Lopez (brauliop.3@gmail.com)
  */

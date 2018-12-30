@@ -1,14 +1,12 @@
 package com.elbraulio.neuralnet.epoch;
 
-import com.elbraulio.neuralnet.epoch.DefaultEpoch;
-import com.elbraulio.neuralnet.epoch.Epoch;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * @author Braulio Lopez (brauliop.3@gmail.com)

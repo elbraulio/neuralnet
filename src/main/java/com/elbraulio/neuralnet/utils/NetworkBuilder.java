@@ -1,10 +1,10 @@
 package com.elbraulio.neuralnet.utils;
 
+import com.elbraulio.neuralnet.args.FromTimeline;
+import com.elbraulio.neuralnet.timeline.TimeLine;
 import com.elbraulio.neuralnet.unit.NeuralUnit;
 import com.elbraulio.neuralnet.unit.SaveToTimeline;
 import com.elbraulio.neuralnet.unit.Sigmoid;
-import com.elbraulio.neuralnet.timeline.TimeLine;
-import com.elbraulio.neuralnet.args.FromTimeline;
 
 import java.util.stream.IntStream;
 

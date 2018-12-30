@@ -1,6 +1,5 @@
 package com.elbraulio.neuralnet.desired;
 
-import com.elbraulio.neuralnet.desired.AboveBelow;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

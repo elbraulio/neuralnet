@@ -1,10 +1,10 @@
 package com.elbraulio.neuralnet.supervise;
 
-import com.elbraulio.neuralnet.learning.PerceptronLearning;
 import com.elbraulio.neuralnet.args.DefaultArgs;
 import com.elbraulio.neuralnet.args.NeuralArgs;
 import com.elbraulio.neuralnet.desired.Desired;
 import com.elbraulio.neuralnet.desired.DesiredXor;
+import com.elbraulio.neuralnet.learning.PerceptronLearning;
 import com.elbraulio.neuralnet.unit.NeuralUnit;
 import com.elbraulio.neuralnet.unit.Sigmoid;
 import com.elbraulio.neuralnet.utils.AsDeque;

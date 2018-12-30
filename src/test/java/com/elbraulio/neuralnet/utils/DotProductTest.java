@@ -1,7 +1,6 @@
 package com.elbraulio.neuralnet.utils;
 
 
-import com.elbraulio.neuralnet.utils.DotProduct;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

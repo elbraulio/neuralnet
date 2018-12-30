@@ -1,9 +1,9 @@
 package com.elbraulio.neuralnet.unit;
 
-import com.elbraulio.neuralnet.utils.SigmoidDecision;
 import com.elbraulio.neuralnet.args.DefaultArgs;
 import com.elbraulio.neuralnet.args.NeuralArgs;
 import com.elbraulio.neuralnet.utils.DotProduct;
+import com.elbraulio.neuralnet.utils.SigmoidDecision;
 
 /**
  * @author Braulio Lopez (brauliop.3@gmail.com)

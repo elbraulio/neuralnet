@@ -2,7 +2,6 @@ package com.elbraulio.neuralnet.learning;
 
 import com.elbraulio.neuralnet.args.DefaultArgs;
 import com.elbraulio.neuralnet.args.NeuralArgs;
-import com.elbraulio.neuralnet.learning.SigmoidLearning;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
