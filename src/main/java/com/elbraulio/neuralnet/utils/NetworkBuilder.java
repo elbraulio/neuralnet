@@ -46,7 +46,7 @@ public final class NetworkBuilder {
             }
         }
         for (int i = 0; i < this.outputLength; i++) {
-            units[neuronIndex] = new SaveToTimeline(
+            units[neuronIndex++] = new SaveToTimeline(
                     new Sigmoid(
                             new FromTimeline(
                                     this.timeLine,
