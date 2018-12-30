@@ -1,8 +1,6 @@
 package com.elbraulio.neuralnet.network;
 
 import com.elbraulio.neuralnet.desired.DesiredOutput;
-import com.elbraulio.neuralnet.network.DefaultNetwork;
-import com.elbraulio.neuralnet.network.NeuralNetwork;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

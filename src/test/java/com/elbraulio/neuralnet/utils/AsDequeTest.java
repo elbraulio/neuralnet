@@ -1,6 +1,5 @@
 package com.elbraulio.neuralnet.utils;
 
-import com.elbraulio.neuralnet.utils.AsDeque;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

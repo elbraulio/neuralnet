@@ -1,7 +1,5 @@
 package com.elbraulio.neuralnet.supervise;
 
-import com.elbraulio.neuralnet.supervise.Supervise;
-import com.elbraulio.neuralnet.supervise.XORTrainer;
 import com.elbraulio.neuralnet.unit.NeuralUnit;
 import org.junit.Test;
 

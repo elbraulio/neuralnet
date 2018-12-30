@@ -1,7 +1,6 @@
 package com.elbraulio.neuralnet.desired;
 
 
-import com.elbraulio.neuralnet.desired.Equals;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

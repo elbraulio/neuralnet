@@ -1,7 +1,6 @@
 package com.elbraulio.neuralnet.unit;
 
 import com.elbraulio.neuralnet.args.DefaultArgs;
-import com.elbraulio.neuralnet.unit.Perceptron;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

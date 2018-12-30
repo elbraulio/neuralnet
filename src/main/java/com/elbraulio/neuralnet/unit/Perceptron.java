@@ -2,7 +2,6 @@ package com.elbraulio.neuralnet.unit;
 
 import com.elbraulio.neuralnet.args.DefaultArgs;
 import com.elbraulio.neuralnet.args.NeuralArgs;
-import com.elbraulio.neuralnet.unit.NeuralUnit;
 import com.elbraulio.neuralnet.utils.DefaultBiasOperation;
 import com.elbraulio.neuralnet.utils.DotProduct;
 

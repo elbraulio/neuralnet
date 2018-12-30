@@ -1,7 +1,5 @@
 package com.elbraulio.neuralnet.args;
 
-import com.elbraulio.neuralnet.args.DefaultArgs;
-import com.elbraulio.neuralnet.args.NeuralArgs;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

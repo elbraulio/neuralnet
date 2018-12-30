@@ -4,7 +4,6 @@ import com.elbraulio.neuralnet.args.DefaultArgs;
 import com.elbraulio.neuralnet.args.NeuralArgs;
 import com.elbraulio.neuralnet.desired.Check;
 import com.elbraulio.neuralnet.desired.Equals;
-import com.elbraulio.neuralnet.learning.Learning;
 import com.elbraulio.neuralnet.unit.Sigmoid;
 
 /**

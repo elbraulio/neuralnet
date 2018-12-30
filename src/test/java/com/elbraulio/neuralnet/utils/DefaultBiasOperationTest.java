@@ -1,6 +1,5 @@
 package com.elbraulio.neuralnet.utils;
 
-import com.elbraulio.neuralnet.utils.DefaultBiasOperation;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

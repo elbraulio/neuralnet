@@ -1,6 +1,5 @@
 package com.elbraulio.neuralnet.unit;
 
-import com.elbraulio.neuralnet.unit.Sigmoid;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

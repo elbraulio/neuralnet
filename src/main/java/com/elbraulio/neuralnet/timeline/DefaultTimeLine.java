@@ -1,8 +1,8 @@
 package com.elbraulio.neuralnet.timeline;
 
+import com.elbraulio.neuralnet.epoch.DefaultEpoch;
 import com.elbraulio.neuralnet.epoch.Epoch;
 import com.elbraulio.neuralnet.utils.EpochWithInitialValues;
-import com.elbraulio.neuralnet.epoch.DefaultEpoch;
 
 import java.util.List;
 
