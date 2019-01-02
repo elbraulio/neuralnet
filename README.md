@@ -26,16 +26,18 @@ __maven__
 
 # How to use
 
+### feed
+
 it is simple, just provide __learning rate__, __input size__, __output size__ and each __layer size__.
 
 ```java
 NeuralNetwork network = new DefaultNetwork(
-                0.3, 13, 4,
+                0.3, 13, 3,
                 10, 5, 8
 );
 ```
 
-in this example we use `learning rate = 0.3`, `input size = 13` and `output size = 4`. Then we include 3 hidden layers with sizes for each layer `10, 5, 8`.
+in this example we use `learning rate = 0.3`, `input size = 13` and `output size = 3`. Then we include 3 hidden layers with sizes for each layer `10, 5, 8`.
 
 Now it is possible to feed the network. **Important**: the input's length must be the same as the input size declared in the network.
 
@@ -43,4 +45,39 @@ Now it is possible to feed the network. **Important**: the input's length must b
 Number[] output = network.feed(inputs);
 ```
 
-The _output_ 
+The _output_ size is the same we defined in the network, so you can do:
+
+```java
+System.out.println(output[0] + ", " + output[1] + ", " + output[2]);
+```
+
+### to train
+
+It is possible to train your network as many times as you want. To do so, first we need to implement our Object who will decide if an output is accepted or not.
+
+```java
+class Desired implements DesiredOutput {
+    @Override
+	public boolean isDesired(Number[] input, Number[] output) {
+   		// input and output size are defined in the constructor      
+        return true;
+	}
+
+	@Override
+	public Number[] desired(Number[] input) {
+        // the return array must have the same size that was declared in constructor
+		return new Number[]{3, 4, 5};
+	}
+}
+```
+
+Now we can train out network, for instance 10 times
+
+```java
+int times = 10;
+// fool network
+while( times-- > 0) {
+	network.toTrain(new Desired(), inputs);
+}
+// smart network
+```
